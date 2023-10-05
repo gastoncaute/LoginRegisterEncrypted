@@ -7,28 +7,11 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-enum Rol {
-  LECTOR
-  ESCRITOR
-  ADMINISTRADOR
-}
-
-model Publicaciones {
-  id          Int         @id @default(autoincrement())
-  titulo      String
-  contenido   String
-  createAt    DateTime    @default(now())
-  usuariosId  Int?
-  Usuarios    Usuarios?   @relation(fields: [usuariosId], references: [id])
-}
-
 model Usuarios {
-  id Int @id @default(autoincrement())
-  nombre String
-  apellido String
-  email String @unique @db.VarChar(255)
-  edad Int
-  descripcion String?
-  rol Rol @default(LECTOR)
-  publicaciones Publicaciones[]
+  id        String @id @default(uuid())
+  nombre    String
+  email     String @unique @db.VarChar(255)
+  password  String
+  edad      Int
+  activo    Boolean @default(true)
 }
