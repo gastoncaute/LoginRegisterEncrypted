@@ -14,4 +14,13 @@ model Usuarios {
   password  String
   edad      Int
   activo    Boolean @default(true)
+  publicaciones Publicacion[]
+}
+
+model Publicacion {
+  id         String @id @default(uuid())
+  titulo     String
+  contenido  String
+  autor      Usuarios  @relation(fields: [autorId], references: [id])
+  autorId    String
 }
