@@ -64,7 +64,7 @@ export default function FormularioDeRegistro() {
                 <input type="submit" className="text-white" value="Registrarse" />
             </form>
             <button onClick={() => console.log(user)}>Click</button>
-            <Link href={"/perfil"}>Ir al Inicio</Link>
+            <Link href={"/perfil"}>Ir al Perfil</Link>
         </>
     )
 }
